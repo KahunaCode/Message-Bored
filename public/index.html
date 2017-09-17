@@ -4,13 +4,14 @@
   <base href="/">
   <meta charset="UTF-8">
   <title>Message Board</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.css" rel="stylesheet">
 </head>
 <body ng-app="myApp">
-
-  <div>
-    <a ng-href="/home">Home</a>
-    <a ng-href="/users">Users</a>
-    <a ng-href="/topics">Topics</a>
+  <h1 class="panel">Best Message Board</h1>
+  <div class="well">
+    <button ng-href="/home">Home</button>
+    <button ng-href="/users">Users</button>
+    <button ng-href="/topics">Topics</button>
   </div>
 
   <ng-view></ng-view>

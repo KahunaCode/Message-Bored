@@ -16,7 +16,7 @@ angular.module('myApp')
   .then((data)=>{
     console.log('topicsProvider data', data)
     data.forEach(function(item){
-      $scope.topicsData += item.name
+      $scope.topicsData.push(item.name)
     })
     //$scope.topicsData = data
   })
