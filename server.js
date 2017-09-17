@@ -18,6 +18,15 @@ app.get('/api/test', (req,res)=>{
   })
 })
 
+app.get('/api/topics', (req,res)=>{
+  Topics.findAll({
+    attributes: ['name']
+  })
+  .then((data)=>{
+    res.send(data);
+  })
+})
+
 app.get('*', (req,res) =>{
   res.sendFile('index.html', {root: path.join(__dirname, '/public') });
 });
