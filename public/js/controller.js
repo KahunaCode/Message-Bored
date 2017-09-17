@@ -1,7 +1,7 @@
 /* jshint esversion: 6 */
 
 angular.module('myApp')
-.controller('homeController', ['$scope', 'testProvider', 'topicsProvider', function($scope, testProvider, topicsProvider){
+.controller('homeController', ['$scope', 'topicsProvider', function($scope, topicsProvider){
   $scope.tempObj = "hello world stuff";
   $scope.testData = [];
   $scope.topicsData = [];
@@ -11,12 +11,6 @@ angular.module('myApp')
     console.log('topicChange', topic)
     $scope.currentTopic = topic;
   };
-
-  testProvider.getData()
-  .then((data)=>{
-    console.log('data in controller', data)
-    $scope.testData = data;
-  })
 
   topicsProvider.getData()
   .then((data)=>{

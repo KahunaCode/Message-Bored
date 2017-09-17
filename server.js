@@ -11,13 +11,6 @@ const { Users, Topics, Messages } = db;
 app.use(express.static('public'));
 app.use(bp.urlencoded());
 
-app.get('/api/test', (req,res)=>{
-  res.json({
-    name: 'hithere',
-    age: 345
-  })
-})
-
 app.get('/api/topics', (req,res)=>{
   Topics.findAll({
     attributes: ['name']
