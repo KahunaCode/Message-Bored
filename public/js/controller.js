@@ -5,6 +5,12 @@ angular.module('myApp')
   $scope.tempObj = "hello world stuff";
   $scope.testData = [];
   $scope.topicsData = [];
+  $scope.currentTopic = '';
+
+  $scope.topicChange = function(topic) {
+    console.log('topicChange', topic)
+    $scope.currentTopic = topic;
+  };
 
   testProvider.getData()
   .then((data)=>{

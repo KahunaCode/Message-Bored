@@ -1,5 +1,7 @@
 <div>my test data is: {{testData.name}}</div>
 
 <div class="btn-group">Latest topics:
-  <button class="btn-primary" ng-repeat="rec in topicsData">{{rec}}</button>
+  <button ng-click="topicChange(rec)" class="btn-primary" ng-repeat="rec in topicsData">{{rec}}</button>
 </div>
+
+<h3>Current Topic: {{currentTopic}}</h3>
