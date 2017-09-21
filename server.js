@@ -17,8 +17,17 @@ app.get('/api/topics', (req,res)=>{
   })
   .then((data)=>{
     res.send(data);
+  });
+});
+
+app.get('/api/users', (req,res)=>{
+  Users.findAll({
+    attributes: ['name']
   })
-})
+  .then((data)=>{
+    res.send(data);
+  });
+});
 
 app.get('*', (req,res) =>{
   res.sendFile('index.html', {root: path.join(__dirname, '/public') });
@@ -26,6 +35,6 @@ app.get('*', (req,res) =>{
 
 
 const server = app.listen(PORT, ()=>{
-  //db.sequelize.sync();
+  db.sequelize.sync();
   console.log(`message board server running on ${PORT}`);
 });
