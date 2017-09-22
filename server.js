@@ -6,13 +6,13 @@ const bp = require('body-parser');
 
 const PORT = process.env.PORT || 9000;
 const db = require('./models');
-const { Users, Topics, Messages } = db;
+const { User, Topic, Message } = db;
 
 app.use(express.static('public'));
 app.use(bp.urlencoded());
 
 app.get('/api/topics', (req,res)=>{
-  Topics.findAll({
+  Topic.findAll({
     attributes: ['name']
   })
   .then((data)=>{
@@ -21,8 +21,17 @@ app.get('/api/topics', (req,res)=>{
 });
 
 app.get('/api/users', (req,res)=>{
-  Users.findAll({
+  User.findAll({
     attributes: ['name']
+  })
+  .then((data)=>{
+    res.send(data);
+  });
+});
+
+app.get('/api/messages/latest', (req,res)=>{
+  Message.findAll({
+    limit: 10
   })
   .then((data)=>{
     res.send(data);

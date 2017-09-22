@@ -5,4 +5,5 @@
 
 <div ng-show="usersVisable">this is my users</div>
 
-<h3>Current Topic: {{currentTopic}}</h3>
+<h3>Latest {{currentTopic}} messages</h3>
+<div ng-repeat="rec in messages">{{rec}}</div>
