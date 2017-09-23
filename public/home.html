@@ -1,9 +1,9 @@
 
 <div class="btn-group">Latest topics:
-  <button ng-click="topicChange(rec)" class="btn-primary" ng-repeat="rec in topicsData">{{rec}}</button>
+  <button ng-click="topicChange(rec)" class="btn-primary" ng-repeat="rec in topicsData">{{rec.name}}</button>
 </div>
 
 <div ng-show="usersVisable">this is my users</div>
 
-<h3>Latest {{currentTopic}} messages</h3>
-<div ng-repeat="rec in messages">{{rec}}</div>
+<h3>Latest {{currentTopic.name}} messages</h3>
+<div ng-repeat="rec in messages">{{rec.msg}}</div>

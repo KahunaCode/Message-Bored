@@ -13,7 +13,7 @@ app.use(bp.urlencoded());
 
 app.get('/api/topics', (req,res)=>{
   Topic.findAll({
-    attributes: ['name']
+    attributes: ['id','name']
   })
   .then((data)=>{
     res.send(data);
