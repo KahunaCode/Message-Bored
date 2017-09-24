@@ -6,13 +6,17 @@
   <title>Message Board</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.css" rel="stylesheet">
 </head>
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="homeController">
   <h1 class="panel">Best Message Board</h1>
   <div class="well">
     <button ng-href="/home">Home</button>
     <button ng-href="/login">Login</button>
     <button ng-href="/register">Register</button>
     <button ng-click="userToggle()">Users</button>
+  </div>
+
+  <div ng-show="usersVisable">
+    <div ng-include="'users.html'"></div>
   </div>
 
   <ng-view></ng-view>

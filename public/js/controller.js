@@ -37,7 +37,10 @@ angular.module('myApp')
 
   $scope.userToggle = function(){
     console.log('toggle user function fired');
+    console.log('users:', $scope.users);
+    console.log('usersVisable', $scope.usersVisable)
     $scope.usersVisable = !$scope.usersVisable;
+
   };
 
   topicsProvider.getData()
