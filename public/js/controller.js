@@ -33,6 +33,17 @@ angular.module('myApp')
     console.log('topicChange topic is', topic.id);
     console.log('messages', $scope.messages);
     $scope.messages = $filter('filter')($scope.messageTempHolder, {topic: topic.id});
+    MessageService.getByTopic(topic.id)
+    .then((data) =>{
+      data.data.forEach(function(item){
+        console.log('going to get more data');
+        let tempMessage = {
+          topic: item.topic_id,
+          msg: item.body
+        };
+        $scope.messages.push(tempMessage);
+      });
+    });
   };
 
   $scope.userToggle = function(){

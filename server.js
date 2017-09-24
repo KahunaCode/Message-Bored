@@ -29,6 +29,18 @@ app.get('/api/users', (req,res)=>{
   });
 });
 
+app.get('/api/messages/by-topic/:id', (req,res)=>{
+  console.log(req.params.id)
+  Message.findAll({
+    where:{
+      topic_id: req.params.id
+    }
+  })
+  .then((data) =>{
+    res.send(data);
+  });
+});
+
 app.get('/api/messages/latest', (req,res)=>{
   Message.findAll({
     limit: 10
@@ -38,9 +50,9 @@ app.get('/api/messages/latest', (req,res)=>{
   });
 });
 
-app.get('*', (req,res) =>{
-  res.sendFile('index.html', {root: path.join(__dirname, '/public') });
-});
+// app.get('*', (req,res) =>{
+//   res.sendFile('index.html', {root: path.join(__dirname, '/public') });
+// });
 
 
 const server = app.listen(PORT, ()=>{
