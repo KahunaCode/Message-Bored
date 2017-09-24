@@ -17,6 +17,7 @@ angular.module('myApp')
       data.data.forEach(function(item){
         console.log('items:', item);
         let tempMessage = {
+          id: item.id,
           topic: item.topic_id,
           msg: item.body
         };
@@ -35,7 +36,12 @@ angular.module('myApp')
     $scope.messages = $filter('filter')($scope.messageTempHolder, {topic: topic.id});
     MessageService.getByTopic(topic.id)
     .then((data) =>{
-      data.data.forEach(function(item){
+      console.log("data length",data.data.length)
+      data.data
+      .filter(function(item){
+        return !$scope.messages.some((message) => message.id === item.id);
+      })
+      .forEach(function(item){
         console.log('going to get more data');
         let tempMessage = {
           topic: item.topic_id,
