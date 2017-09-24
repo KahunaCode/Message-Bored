@@ -50,24 +50,15 @@ app.get('/api/messages/latest', (req,res)=>{
   });
 });
 
-app.post('/api/users/login', (req,res) =>{
-  console.log("insert new user params:", req.headers.name)
-  // User.findOrCreate({
-  //   where: {
-  //     name: req.headers.name
-  //   }
-  // })
-  // .then(()=>{
-  //   res.end()
-  // })
+app.post('/api/users/newLogin', (req,res) =>{
+  // console.log("insert new user params:", req.headers.name)
   User.create({
     name: req.headers.name
   })
   .then(()=>{
     res.end();
-  })
-
-  })
+  });
+});
 
 
 // app.get('*', (req,res) =>{
